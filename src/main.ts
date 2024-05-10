@@ -9,7 +9,7 @@ import { ChangeStreams } from "./ChangeStreams";
 
 let typesense: TypesenseClient;
 let mongo: MongoClient;
-let need: number;
+let need: boolean;
 
 function typesenseURLParser(url: string): node {
   const splits = url.split(":");
@@ -48,7 +48,7 @@ async function initializeMongoClient(options: config): Promise<MongoClient> {
 async function checkForExistingCollection(
   typesense: TypesenseClient,
   options: config
-): Promise<number> {
+): Promise<boolean> {
   need = await typesense.checkCollection(options.typesenseCollectionName);
   return need;
 }
@@ -108,10 +108,9 @@ export async function Main(parsed: config): Promise<void> {
     {
       title: "Create a new Typesense Collection",
       task: () => typesense.createCollection(options.typesenseCollectionName),
-      skip: () =>
-        need
+      skip: () => need
           ? "Found an existing collection skipping create collection"
-          : undefined,
+          : undefined
     },
     {
       title: "Index existing documents",

@@ -1,6 +1,7 @@
 import { Client, Errors } from "typesense";
 import { node } from "./interfaces/node";
 import { schema } from "./interfaces/schema";
+import {HealthResponse} from "typesense/lib/Typesense/Health";
 
 export class TypesenseClient {
   private client: Client;
@@ -87,19 +88,20 @@ export class TypesenseClient {
     await this.client.aliases().upsert(newCollectionName, aliased_collection);
   }
 
-  async checkCollection(collectionName: string): Promise<number> {
+  async checkCollection(collectionName: string): Promise<boolean> {
     try {
       const result = await this.client.collections(collectionName).retrieve();
-      return result.num_documents;
+      return result.name === collectionName;
     } catch (err) {
       if (err instanceof Errors.ObjectNotFound) {
-        return undefined;
+        return false;
       }
+
       throw err;
     }
   }
 
-  async checkServer(): Promise<void> {
+  async checkServer(): Promise<HealthResponse> {
     return await this.client.health.retrieve();
   }
 }
