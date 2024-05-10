@@ -1,5 +1,5 @@
 {
-  "name": "typesense-mongodb",
+  "name": "@Babaktrad/typesense-mongodb",
   "version": "0.0.2",
   "description": "A CLI process to sync data from MongoDB to Typesense",
   "main": "index.js",
@@ -13,16 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/typesense/typesense-mongodb"
+    "url": "https://github.com/Babaktrad/typesense-mongodb"
   },
   "keywords": [
     "mongodb",
     "typesense"
   ],
-  "author": "Typesense, Inc.",
+  "author": "Babaktrad",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/typesense/typesense-mongodb/issues"
+    "url": "https://github.com/Babaktrad/typesense-mongodb/issues"
   },
   "files": [
     "src",
@@ -31,7 +31,7 @@
     "config.js"
   ],
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/@Babaktrad"
   },
   "dependencies": {
     "@babel/runtime": "^7.14.5",
@@ -64,5 +64,5 @@
     "prettier": "^2.3.1",
     "typescript": "^4.3.2"
   },
-  "homepage": "https://github.com/typesense/typesense-mongodb"
+  "homepage": "https://github.com/Babaktrad/typesense-mongodb"
 }
