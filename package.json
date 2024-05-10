@@ -45,14 +45,14 @@
     "inquirer": "^8.1.0",
     "jest": "^27.0.4",
     "jest-cli": "^27.0.4",
-    "jest-dev-server": "^5.0.3",
+    "jest-dev-server": "^10.0.0",
     "jest-junit": "^12.2.0",
     "listr": "^0.14.3",
     "mongodb": "^3.6.9",
     "ncp": "^2.0.0",
     "pkg-install": "^1.0.0",
     "ts-jest": "^27.0.3",
-    "typesense": "^0.12.1"
+    "typesense": "^1.8.2"
   },
   "devDependencies": {
     "@types/listr": "^0.14.3",
